@@ -1,0 +1,31 @@
+Array is a sequential data structure which stores elements in contigious manner.
+In linked list, The data is stored at random positions in the memory. That is non-contigious locations.
+
+Problems with Arrays:
+-> Fixed size. We have pre-allocate the size for the arrays before creation. But this problem can be resolved through dynamic sized arrays.
+-> Insertion in the middle is costly. We have to move the elements aside first then insert the element.
+-> Deletion is costly too.
+
+Example: Example of Round Robin scheduling is very costly using Arrays. But this operation is very easy using Linked List. It's a CPU scheduling Algorithm.
+
+Also in merge sort, By using Arrays we need some Auxillary space to store the elements during merging. But using Linked List, We can overcome the problem of using Auxillary space.
+
+In Linked Lists, Every node stores the element and reference(Address) to the next node.
+The idea in Linked Lists is to drop the contigious memory requirements so that the insertion, deletion and other opeations can be done easily.
+
+All the Non-primitive types in java are stored in the Heap memory.
+
+Implementation of Queue and Deque is simplier with Linked Lists.
+
+We have some Adavantages of Linked Lists over Arrays as mentioned above, But Arrays are used in Most of the Applications over Linked Lists because of many features like Random Access Feature, etc.
+
+Doubly linked lists can be used to build browsers where we can backward page and forward page.
+
+Adavantages of Doubly Linked List over Singly Linked Lists
+- Can be traversed in both the directions.
+- Deleting a given node/reference in O(1) time.
+- Insert/Delete before a given node. In singly linked list we can insert at beginning, delete at beginning and insert at end in o(1) time. But we cannot delete at the end in o(1) time.
+
+Disadvantages
+- Extra space for prev reference.
+- Code becomes more complex.

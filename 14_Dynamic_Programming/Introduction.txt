@@ -1,0 +1,13 @@
+Dynamic Programming is basically optimization over plain recursion. We store the solutions of already computed sub problems and use those solutions when we encounter them again.
+There are two ways to implement DP
+i) Memoization(top-down),
+ii) Tabulation(bottom-up).
+
+Applications of DP:
+i) Bellman Ford Algorithm. This algo is used to find shortest path from source to all destinations. It is used in routing.
+ii) Floyd warshall Algorithm. This algo is used to find shortest path between every pair of vertices in a graph.
+iii) Diff Utility. Used in Version Control systems like Git to know differences between current changes and previous commit. This is based on a dynamic programming problem called LCS(Longest Common Subsequence),
+iv) Search Close Words. This is based on DP Problem called Edit Distance,
+v) Resource Allocation. Based on 0-1 Knapsack.
+
+Memoization: In normal recursion, There are overlapping sub problems. That is, A sub problem that is solved once, Is solved again in another recursion call. Which is not needed. For example, In Recursive solution of finding nth fibonacci number, We repeat the subproblems of function(n-1) in funcion(n-2) again. This can be avoided using Memoization. So, We solve every sub problem exactly once.
