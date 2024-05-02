@@ -5,25 +5,25 @@ public class Minimum_Number_Of_Indian_Currency {
     public static void main(String[] args) {
         System.out.println(minPartition(1000));
     }
-    
+
     static ArrayList<Integer> minPartition(int N)
     {
         // code here
         int[] dp=new int[N+1];
         int[] coins= { 1, 2, 5, 10, 20, 50, 100, 200, 500, 2000 };
-        
+
         dp[0]=0;
-        
+
         for(int i=1; i<=N; i++) {
             dp[i]=Integer.MAX_VALUE;
-            
+
             for(int k: coins) {
                 if(i-k>=0) {
                     dp[i]=Math.min(dp[i], 1+dp[i-k]);
                 }
             }
         }
-        
+
         int currIndex=N;
 
         ArrayList<Integer> result=new ArrayList<>();

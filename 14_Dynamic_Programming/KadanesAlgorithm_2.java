@@ -18,7 +18,7 @@ public class KadanesAlgorithm_2 {
 
       return helperFunction(memo, arr, sizeOfArray, 0);
     }
-    
+
     static long helperFunction(long[] memo, int[] arr, int n, int index) {
         if(index<0 || index>=n) return 0;
         if(memo[index]==-1) {

@@ -12,13 +12,18 @@ public class Dp_13_Optimal_Game_Strategy {
     }
 
     static int helperFunction(int[] arr, int low, int high, int sum) {
-        /*
+        if(low+1==high) return Math.max(arr[low], arr[high]);
+        return Math.max(sum-helperFunction(arr, low+1, high, sum-arr[low]), sum-helperFunction(arr, low, high-1, sum-arr[high]));
+    }
+
+    static int method(int[] arr, int low, int high) {
+                /*
         Imagine that you have an option of chosing an element starting from index i and ending at index j.
         Let the function be f(i, j).
         If you chose the element at left most index, The opponent has the function f(i+1, j) to chose from.
-        If you chose the element at right most index, The opponent has the function f(i, j+1) to chose from.
+        If you chose the element at right most index, The opponent has the function f(i, j-1) to chose from.
 
-        Since the opponent is playing optimally too, We get the Min( f(i+1, j), f(i, j+1) ).
+        Since the opponent is playing optimally too, We get the Min( f(i+1, j), f(i, j-1) ).
 
         And we need the maximum of these two to get the best answer.
         So, the recursive function is.
@@ -30,11 +35,6 @@ public class Dp_13_Optimal_Game_Strategy {
         )
 
         */
-        if(low+1==high) return Math.max(arr[low], arr[high]);
-        return Math.max(sum-helperFunction(arr, low+1, high, sum-arr[low]), sum-helperFunction(arr, low, high-1, sum-arr[high]));
-    }
-
-    static int method(int[] arr, int low, int high) {
         if(low+1==high) return Math.max(arr[low], arr[high]);
         return Math.max(arr[low]+Math.min(method(arr, low+1, high-1), method(arr, low+2, high)), arr[high]+Math.min(method(arr, low, high-2), method(arr, low+1, high-1)));
     }
