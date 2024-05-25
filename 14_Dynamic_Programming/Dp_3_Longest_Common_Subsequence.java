@@ -1,8 +1,53 @@
+// Given two strings, find the length of longest subsequence present in both of them. Both the strings are in uppercase latin alphabets.
+
+// Example 1:
+
+// Input:
+// A = 6, B = 6
+// str1 = ABCDGH
+// str2 = AEDFHR
+// Output: 3
+// Explanation: LCS for input strings “ABCDGH” and “AEDFHR” is “ADH” of length 3.
+// Example 2:
+
+// Input:
+// A = 3, B = 2
+// str1 = ABC
+// str2 = AC
+// Output: 2
+// Explanation: LCS of "ABC" and "AC" is "AC" of length 2.
+
 import java.util.Arrays;
 
 public class Dp_3_Longest_Common_Subsequence {
     public static void main(String[] args) {
-        System.out.println(lcsTabulation("aaaabbaa", "aabbaaaa", 8, 8));
+        System.out.println(mySol("ACABBBBDBAAB", "BBCCBEECDCDE"));
+    }
+
+    static int mySol(String st1, String st2) {
+        int p1=0, p2=0, len1=st1.length(), len2=st2.length(), res=-1, count=0;
+
+        for(int k=0; k<len1; k++) {
+            System.out.println("k="+k);
+            count=0;
+            for(int i=k; i<len1; i++) {
+                p1=i;
+                for(int j=p2; j<len2; j++) {
+                    System.out.println("i="+i+", j="+j);
+                    if(st1.charAt(p1)==st2.charAt(j)) {
+                        count++;
+                        p2=j+1;
+                        break;
+                    }
+                }
+
+                if(count>res) res=count;
+                p1++;
+            }
+            p2=0;
+        }
+
+        return res;
     }
 
     // Memoization Solution.

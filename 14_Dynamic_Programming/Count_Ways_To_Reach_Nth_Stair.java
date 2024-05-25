@@ -5,8 +5,8 @@ Input:
 n = 4
 Output: 5
 Explanation:
-You can reach 4th stair in 5 ways. 
-Way 1: Climb 2 stairs at a time. 
+You can reach 4th stair in 5 ways.
+Way 1: Climb 2 stairs at a time.
 Way 2: Climb 1 stair at a time.
 Way 3: Climb 2 stairs, then 1 stair
 and then 1 stair.
@@ -30,7 +30,7 @@ public class Count_Ways_To_Reach_Nth_Stair {
     static int dpSolution(int n) {
         int[] dp=new int[n+1];
         dp[0]=1; dp[1]=1;
-        
+
         for(int i=2; i<=n; i++) {
             dp[i]=(dp[i-1]+dp[i-2])%(int)(Math.pow(10, 9)+7);
         }

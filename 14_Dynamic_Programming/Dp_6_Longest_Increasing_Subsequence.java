@@ -5,9 +5,37 @@ import java.util.ArrayList;
 
 public class Dp_6_Longest_Increasing_Subsequence {
     public static void main(String[] args) {
-        int[] arr={8, 13, 15, 2, 9, 100, 150, 1};
-        System.out.println(LIS_Binary_Search(arr, arr.length));
+        int[] arr={1, 101, 2, 3, 100};
+        System.out.println(maxSumIS(arr, arr.length));
     }
+
+    public static int maxSumIS(int arr[], int n)
+	{
+	    //code here.
+	    int[] lis=new int[n];
+	    lis[0]=arr[0];
+
+	    for(int i=1; i<n; i++) {
+	        for(int j=i-1; j>=0; j--) {
+	            if(arr[i]>=arr[j]) {
+	                lis[i]=Math.max(lis[i], lis[j]);
+	            }
+	        }
+
+            System.out.println("i="+i+", lis="+lis[i]);
+
+	        lis[i]+=arr[i];
+	    }
+
+	    int max=lis[0];
+
+	    for(int i=1; i<n; i++) {
+	        max=Math.max(lis[i], max);
+	    }
+
+        printArray(lis);
+	    return max;
+	}
 
     public static int LIS(int[] arr, int n) {
         int[] lis=new int[n];

@@ -3,7 +3,12 @@ import java.util.Arrays;
 public class Practice {
 
     public static void main(String[] args) {
-        subsets("abc");
+        System.out.println(powerUsingRecursion(2, 3));
+    }
+
+    static int powerUsingRecursion(int n, int p) {
+        if(p==1) return n;
+        return n*powerUsingRecursion(n, p-1);
     }
 
     static void subsets(String str)

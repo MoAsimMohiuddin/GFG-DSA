@@ -19,7 +19,6 @@
 // are different possible permutations.
 // Hence output will be 4.
 
-import java.util.HashSet;
 
 public class Reach_a_Given_Score {
     public static void main(String[] args) {
@@ -29,9 +28,9 @@ public class Reach_a_Given_Score {
     static int method(int n) {
         int[] dp=new int[n+1];
         int[] arr={3, 5, 10};
-        
+
         dp[0]=1;
-        
+
         for(int k: arr) {
             for(int i=k; i<=n; i++) {
                 if(i-k>=0) {
@@ -39,7 +38,7 @@ public class Reach_a_Given_Score {
                 }
             }
         }
-        
+
         return dp[n];
     }
 }
